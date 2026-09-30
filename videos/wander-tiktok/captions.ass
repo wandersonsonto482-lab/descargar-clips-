@@ -1,0 +1,65 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Inter Medium,54,&H00FFFFFF,&H00FFFFFF,&H64000000,&H5A000000,0,0,0,0,100,100,0,0,1,1.4,3,2,130,130,760,1
+Style: Brand,Inter SemiBold,30,&H4DFFFFFF,&H00FFFFFF,&H80000000,&H80000000,0,0,0,0,100,100,6,0,1,0,1.5,7,72,0,250,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.16,0:00:04.30,Cap,,0,0,0,,{\fad(80,60)}ese es mi primer vídeo.
+Dialogue: 0,0:00:04.32,0:00:05.82,Cap,,0,0,0,,{\fad(80,60)}como es mi primer video
+Dialogue: 0,0:00:05.84,0:00:07.90,Cap,,0,0,0,,{\fad(80,60)}es para eso es un mensaje para
+Dialogue: 0,0:00:07.92,0:00:11.18,Cap,,0,0,0,,{\fad(80,60)}mí yo de 5 años.
+Dialogue: 0,0:00:11.28,0:00:12.94,Cap,,0,0,0,,{\fad(80,60)}mi nombre es Wander
+Dialogue: 0,0:00:12.96,0:00:15.74,Cap,,0,0,0,,{\fad(80,60)}tengo 21 años y voy a empezar
+Dialogue: 0,0:00:15.76,0:00:17.29,Cap,,0,0,0,,{\fad(80,60)}en las redes sociales.
+Dialogue: 0,0:00:17.31,0:00:20.73,Cap,,0,0,0,,{\fad(80,60)}voy a construir una marca personal.
+Dialogue: 0,0:00:20.75,0:00:25.13,Cap,,0,0,0,,{\fad(80,60)}bueno, ya sabes que las cosas están
+Dialogue: 0,0:00:25.15,0:00:28.81,Cap,,0,0,0,,{\fad(80,60)}poniéndose duro, la verdad.
+Dialogue: 0,0:00:28.91,0:00:32.49,Cap,,0,0,0,,{\fad(80,60)}estás luchando por tu sueño
+Dialogue: 0,0:00:32.51,0:00:34.49,Cap,,0,0,0,,{\fad(80,60)}por tu meta.
+Dialogue: 0,0:00:34.51,0:00:36.41,Cap,,0,0,0,,{\fad(80,60)}se está volviendo duro.
+Dialogue: 0,0:00:36.89,0:00:40.79,Cap,,0,0,0,,{\fad(80,60)}pero yo sé que tú puedes lograrlo.
+Dialogue: 0,0:00:40.81,0:00:43.03,Cap,,0,0,0,,{\fad(80,60)}ese es mi yo de cinco años
+Dialogue: 0,0:00:43.05,0:00:43.99,Cap,,0,0,0,,{\fad(80,60)}en el futuro.
+Dialogue: 0,0:00:44.01,0:00:45.75,Cap,,0,0,0,,{\fad(80,60)}ese es un mensaje para mi yo
+Dialogue: 0,0:00:45.77,0:00:47.43,Cap,,0,0,0,,{\fad(80,60)}de cinco años en el futuro.
+Dialogue: 0,0:00:48.17,0:00:49.91,Cap,,0,0,0,,{\fad(80,60)}pudiste lograrlo.
+Dialogue: 0,0:00:50.30,0:00:52.68,Cap,,0,0,0,,{\fad(80,60)}pudiste tener la vida que siempre que
+Dialogue: 0,0:00:52.70,0:00:56.52,Cap,,0,0,0,,{\fad(80,60)}quisiste pudiste sacar a toda tu familia
+Dialogue: 0,0:00:56.94,0:00:59.24,Cap,,0,0,0,,{\fad(80,60)}a tus hermanos a tus padres
+Dialogue: 0,0:00:59.50,0:01:00.64,Cap,,0,0,0,,{\fad(80,60)}salir de
+Dialogue: 0,0:01:01.42,0:01:02.60,Cap,,0,0,0,,{\fad(80,60)}la pobreza
+Dialogue: 0,0:01:03.43,0:01:05.81,Cap,,0,0,0,,{\fad(80,60)}porque claro, hay que ser honesto
+Dialogue: 0,0:01:07.75,0:01:10.41,Cap,,0,0,0,,{\fad(80,60)}en esa situación económica que
+Dialogue: 0,0:01:10.63,0:01:12.01,Cap,,0,0,0,,{\fad(80,60)}ahora tienes que
+Dialogue: 0,0:01:12.87,0:01:17.65,Cap,,0,0,0,,{\fad(80,60)}en el futuro no vas a tener.
+Dialogue: 0,0:01:17.67,0:01:20.61,Cap,,0,0,0,,{\fad(80,60)}entonces, ese mensaje
+Dialogue: 0,0:01:23.11,0:01:26.76,Cap,,0,0,0,,{\fad(80,60)}es para mí, yo del futuro.
+Dialogue: 0,0:01:26.78,0:01:28.68,Cap,,0,0,0,,{\fad(80,60)}gracias por luchar
+Dialogue: 0,0:01:29.18,0:01:32.60,Cap,,0,0,0,,{\fad(80,60)}y por no rendirte todo ese tiempo.
+Dialogue: 0,0:01:32.62,0:01:35.56,Cap,,0,0,0,,{\fad(80,60)}por confiar en Dios principalmente.
+Dialogue: 0,0:01:36.30,0:01:38.68,Cap,,0,0,0,,{\fad(80,60)}todo lo que has tenido es gracias
+Dialogue: 0,0:01:38.70,0:01:40.48,Cap,,0,0,0,,{\fad(80,60)}a Dios y
+Dialogue: 0,0:01:41.02,0:01:42.36,Cap,,0,0,0,,{\fad(80,60)}no te olvides
+Dialogue: 0,0:01:42.86,0:01:45.48,Cap,,0,0,0,,{\fad(80,60)}que Dios es el que te guió
+Dialogue: 0,0:01:45.50,0:01:49.40,Cap,,0,0,0,,{\fad(80,60)}en ese camino tienes que honrarlo
+Dialogue: 0,0:01:49.90,0:01:52.28,Cap,,0,0,0,,{\fad(80,60)}tienes que cuidar a toda tu familia
+Dialogue: 0,0:01:52.70,0:01:55.80,Cap,,0,0,0,,{\fad(80,60)}tienes que proveer porque eres el mayor
+Dialogue: 0,0:01:57.82,0:02:01.64,Cap,,0,0,0,,{\fad(80,60)}bueno gracias Por todo, mi nombre es
+Dialogue: 0,0:02:02.18,0:02:03.68,Cap,,0,0,0,,{\fad(80,60)}wanderson.
+Dialogue: 0,0:02:03.70,0:02:04.96,Cap,,0,0,0,,{\fad(80,60)}me llaman Wander
+Dialogue: 0,0:02:04.98,0:02:07.52,Cap,,0,0,0,,{\fad(80,60)}tengo 21 años y ese es mi
+Dialogue: 0,0:02:07.54,0:02:10.60,Cap,,0,0,0,,{\fad(80,60)}primer video en esa cuenta. Así que
+Dialogue: 0,0:02:11.70,0:02:14.48,Cap,,0,0,0,,{\fad(80,60)}es permitido todos los comentarios
+Dialogue: 0,0:02:14.50,0:02:18.24,Cap,,0,0,0,,{\fad(80,60)}todas las críticas, todo está permitido.
+Dialogue: 0,0:02:18.26,0:02:19.53,Cap,,0,0,0,,{\fad(80,60)}así que comenten.
+Dialogue: 0,0:02:19.55,0:02:23.13,Cap,,0,0,0,,{\fad(80,60)}y apóyenme porque se viene un buen cambio
+Dialogue: 0,0:02:23.63,0:02:26.73,Cap,,0,0,0,,{\fad(80,60)}síganme para que sean parte de ese cambio
+Dialogue: 1,0:00:00.00,0:02:27.40,Brand,,0,0,0,,wander
