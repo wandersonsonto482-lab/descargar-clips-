@@ -1,0 +1,21 @@
+{
+  "category": "kinetic-type",
+  "duration_s": 10,
+  "fps": 30,
+  "canvas": { "w": 1080, "h": 1920, "aspect": "9:16" },
+  "style": "Clean, calm-to-confident web-document minimalism lifted from the example.com page itself: pale grey field, white card, one indigo link accent.",
+  "palette": ["#f0f0f2", "#fdfdff", "#38488f", "#16161a", "#6b6b76"],
+  "font": "Inter (local woff2 400/600/800)",
+  "beats": [2.2, 5.0, 7.8],
+  "export": "mp4",
+  "asset_needs": [],
+  "content": {
+    "scenes": [
+      { "id": "s1-hook", "start": 0, "end": 2.2, "text": "example.com", "emphasis_words": ["example.com"], "emotion": "curious", "motion": "address-bar pill scale_grow, typewriter URL, caret" },
+      { "id": "s2-build", "start": 2.2, "end": 5.0, "text": "Example Domain", "emphasis_words": ["Domain"], "emotion": "confident", "motion": "slam per word, accent color_shift on Domain" },
+      { "id": "s3-punch", "start": 5.0, "end": 7.8, "text": "Use it in any doc. No permission needed.", "emphasis_words": ["No permission"], "emotion": "surprising", "motion": "word_reveal, underline_sweep on emphasis" },
+      { "id": "s4-resolve", "start": 7.8, "end": 10, "text": "example.com — Reserved by RFC 2606", "emphasis_words": ["example.com"], "emotion": "settled", "motion": "card lockup scale_grow, hold_breath, fade_out last 0.4s" }
+    ]
+  },
+  "brief": "A browser address bar types example.com; the page's own title slams in; the one surprising fact (anyone may use it, no permission) reveals word by word with an underline sweep; resolves on a white document-card lockup. Single motif: the white card from the real page."
+}

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Inter"; font-weight: 400; src: url("vendor/inter-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-weight: 600; src: url("vendor/inter-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-weight: 800; src: url("vendor/inter-latin-800-normal.woff2") format("woff2"); }
+
+      :root {
+        --bg: #f0f0f2;
+        --card: #fdfdff;
+        --accent: #38488f;
+        --ink: #16161a;
+        --muted: #6b6b76;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #stage {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        background: var(--bg);
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        color: var(--ink);
+      }
+      #main-clip { position: absolute; inset: 0; }
+      .scene {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 160px 100px;
+        gap: 36px;
+        visibility: hidden;
+      }
+
+      /* s1 — address bar */
+      .urlbar {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        width: 860px;
+        height: 150px;
+        padding: 0 48px;
+        border-radius: 75px;
+        background: var(--card);
+        box-shadow: 0 24px 60px rgba(22, 22, 26, 0.10);
+      }
+      .lock {
+        width: 34px; height: 42px; border-radius: 8px;
+        background: var(--muted); position: relative; flex: none;
+      }
+      .lock::before {
+        content: ""; position: absolute; left: 6px; top: -20px;
+        width: 22px; height: 26px; border: 6px solid var(--muted);
+        border-bottom: none; border-radius: 14px 14px 0 0;
+      }
+      .url { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
+      .url .ch { display: inline-block; }
+      .caret { width: 6px; height: 72px; background: var(--accent); flex: none; }
+
+      /* s2 — title slam */
+      .title { font-size: 190px; font-weight: 800; line-height: 0.95; letter-spacing: -0.05em; text-align: center; }
+      .title span { display: block; }
+      #w-domain { color: var(--ink); }
+
+      /* s3 — the fact */
+      .fact { font-size: 104px; font-weight: 800; line-height: 1.08; letter-spacing: -0.035em; text-align: center; }
+      .fact .w { display: inline-block; margin: 0 0.12em; }
+      .fact .em { color: var(--accent); position: relative; }
+      .underline {
+        height: 14px; width: 700px; border-radius: 7px;
+        background: var(--accent); transform-origin: left center;
+      }
+
+      /* s4 — lockup card */
+      .card {
+        display: flex; flex-direction: column; align-items: flex-start; gap: 28px;
+        width: 880px; padding: 88px 80px; border-radius: 36px;
+        background: var(--card);
+        box-shadow: 0 30px 80px rgba(22, 22, 26, 0.12);
+      }
+      .card h2 { font-size: 110px; font-weight: 800; letter-spacing: -0.045em; }
+      .card p { font-size: 42px; font-weight: 400; line-height: 1.35; color: var(--muted); }
+      .card .link { font-size: 46px; font-weight: 600; color: var(--accent); }
+      .card .rule { height: 6px; width: 100%; background: var(--bg); border-radius: 3px; }
+      .footnote { font-size: 34px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    </style>
+  </head>
+  <body>
+    <div
+      id="stage"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="10"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="main-clip" class="clip" data-start="0" data-duration="10" data-track-index="0">
+        <section class="scene" id="s1">
+          <div class="urlbar" id="urlbar">
+            <div class="lock"></div>
+            <div class="url" id="url"></div>
+            <div class="caret" id="caret"></div>
+          </div>
+        </section>
+
+        <section class="scene" id="s2">
+          <h1 class="title"><span id="w-example">Example</span><span id="w-domain">Domain</span></h1>
+        </section>
+
+        <section class="scene" id="s3">
+          <div class="fact">
+            <span class="w">Use</span><span class="w">it</span><span class="w">in</span><span class="w">any</span><span class="w">doc.</span><br />
+            <span class="w em">No</span><span class="w em">permission</span><br />
+            <span class="w">needed.</span>
+          </div>
+          <div class="underline" id="underline"></div>
+        </section>
+
+        <section class="scene" id="s4">
+          <div class="card" id="card">
+            <h2>Example Domain</h2>
+            <div class="rule"></div>
+            <p>For use in illustrative examples in documents.</p>
+            <div class="link">example.com</div>
+          </div>
+          <div class="footnote" id="footnote">Reserved by RFC 2606</div>
+        </section>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      // Build the URL as per-character spans so the typewriter is seek-safe.
+      const urlEl = document.getElementById("url");
+      "example.com".split("").forEach((c) => {
+        const s = document.createElement("span");
+        s.className = "ch";
+        s.textContent = c;
+        urlEl.appendChild(s);
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, at) => tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, at);
+      const hide = (sel, at) => tl.fromTo(sel, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.25, ease: "power2.in", immediateRender: false }, at);
+
+      // s1 — Hook (0–2.2): address bar grows, URL types, caret blinks twice.
+      show("#s1", 0);
+      tl.fromTo("#urlbar", { scale: 0.6, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.5, ease: "back.out(2)" }, 0);
+      tl.fromTo("#url .ch", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01, stagger: 0.07 }, 0.45);
+      tl.fromTo("#caret", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.2, repeat: 3, yoyo: true, ease: "none" }, 1.3);
+      tl.fromTo("#urlbar", { scale: 1 }, { scale: 1.08, duration: 0.3, ease: "power2.in", immediateRender: false }, 1.95);
+      hide("#s1", 1.95);
+
+      // s2 — Build (2.2–5.0): the page's own title slams in word by word.
+      show("#s2", 2.2);
+      tl.fromTo("#w-example", { y: -300, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45, ease: "power4.out" }, 2.2);
+      tl.fromTo("#w-domain", { y: 300, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45, ease: "power4.out" }, 2.55);
+      tl.fromTo(".title", { x: 0 }, { keyframes: [{ x: -12 }, { x: 12 }, { x: 0 }], duration: 0.18, ease: "none" }, 3.0);
+      tl.fromTo("#w-domain", { color: "#16161a" }, { color: "#38488f", duration: 0.35, ease: "sine.inOut", immediateRender: false }, 3.3);
+      tl.fromTo(".title", { scale: 1 }, { scale: 1.04, duration: 1.4, ease: "sine.inOut", immediateRender: false }, 3.4);
+      hide("#s2", 4.75);
+
+      // s3 — Punch (5.0–7.8): the surprising fact, word by word, underline on the emphasis.
+      show("#s3", 5.0);
+      tl.fromTo("#s3 .w", { y: 60, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.35, ease: "power3.out", stagger: 0.1 }, 5.0);
+      tl.fromTo("#underline", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 6.05);
+      tl.fromTo("#s3 .em", { scale: 1 }, { scale: 1.08, duration: 0.2, repeat: 1, yoyo: true, ease: "sine.inOut" }, 6.45);
+      hide("#s3", 7.55);
+
+      // s4 — Resolve (7.8–10): white document card lockup, then fade to field.
+      show("#s4", 7.8);
+      tl.fromTo("#card", { scale: 0.85, y: 80, autoAlpha: 0 }, { scale: 1, y: 0, autoAlpha: 1, duration: 0.55, ease: "back.out(1.6)" }, 7.8);
+      tl.fromTo("#footnote", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 8.3);
+      tl.fromTo("#card", { scale: 1 }, { scale: 1.015, duration: 1.2, ease: "sine.inOut", immediateRender: false }, 8.35);
+      tl.fromTo("#s4", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 9.6);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
